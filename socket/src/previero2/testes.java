@@ -1,8 +1,5 @@
 package previero2;
 
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
 public class testes {
 
 	public static void main(String[] args) {

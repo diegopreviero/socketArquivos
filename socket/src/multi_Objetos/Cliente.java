@@ -9,6 +9,7 @@ public class Cliente extends Thread {
 	private int porta;
 	private String texto;
 	public static int i ;
+	
 	public Cliente(String server, int porta) {
 		this.server = server;
 		this.porta = porta;

@@ -55,7 +55,6 @@ public class TelaMulti {
 				try {
 					new Servidor(1024);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -64,6 +63,13 @@ public class TelaMulti {
 		frame.getContentPane().add(btnStartServer);
 
 		JButton btnStartClient = new JButton("Start Client");
+		btnStartClient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+				
+				
+			}
+		});
 		btnStartClient.setBounds(10, 92, 292, 23);
 		frame.getContentPane().add(btnStartClient);
 
@@ -88,7 +94,7 @@ public class TelaMulti {
 					for (File pdf : pdfs) {
 						System.out.print(pdf.getAbsolutePath() + "\n");
 						//String local = pasta1.substring(pasta1.lastIndexOf("/")+1,pasta1.length());
-						System.out.println("f:\\" + pdf.getAbsolutePath().substring(pdf.getAbsolutePath().indexOf("\\")+1,pdf.getAbsolutePath().length()));
+						System.out.println("f:\\" + pdf.getAbsolutePath().substring(pdf.getAbsolutePath().indexOf("\\")+1, pdf.getAbsolutePath().length()));
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

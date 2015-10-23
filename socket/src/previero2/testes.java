@@ -18,7 +18,7 @@ public class testes {
 				}*/
 		
 		
-		System.out.println(new Date().getDate());
+		System.out.println(new Date().getDate() + " : " + new Date().getTime());
 		
 	}
 

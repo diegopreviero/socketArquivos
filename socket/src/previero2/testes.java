@@ -1,5 +1,7 @@
 package previero2;
 
+import java.util.Date;
+
 public class testes {
 
 	public static void main(String[] args) {
@@ -15,6 +17,8 @@ public class testes {
 			            chooser.getSelectedFile().getName());
 				}*/
 		
+		
+		System.out.println(new Date().getDate());
 		
 	}
 

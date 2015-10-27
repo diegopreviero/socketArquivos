@@ -17,9 +17,9 @@ public class SocketClientExample {
 		
 		Cachorro c = new Cachorro();
 		c.setRaca("vira lata");
-		c.setCor("preto");
+		c.setCor("preta");
 		
-		for(int i=0; i<5;i++){
+		for(int i=0; i < 5; i++){
 			socket = new Socket(host.getHostName(), 9876);
 			oos = new ObjectOutputStream(socket.getOutputStream());
 			System.out.println("Sending request to Socket Server ");

@@ -34,4 +34,12 @@ public class SocketServerExample {
         System.out.println("Shutting down Socket server!!");
         server.close();
     }
+    
+    /*
+     * 
+      ObjectInputStream oi = new ObjectInputStream(conexao.getInputStream());
+ <Cliente> c = (Vector<Cliente>) oi.readObject();
+ 
+ */
+     
 }

@@ -18,7 +18,7 @@ public class SocketServerExample {
             System.out.println("Waiting for client request");
             Socket socket = server.accept();
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-            String message = (String) ois.readObject();
+            String message = (String) ois.readObject().toString();
             System.out.println("Message Received: " + message);
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             oos.writeObject("Hi Client " + message);

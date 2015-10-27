@@ -14,11 +14,16 @@ public class SocketClientExample {
 		Socket socket = null;
 		ObjectOutputStream oos = null;
 		ObjectInputStream ois = null;
+		
+		Cachorro c = new Cachorro();
+		c.setRaca("vira lata");
+		c.setCor("preto");
+		
 		for(int i=0; i<5;i++){
 			socket = new Socket(host.getHostName(), 9876);
 			oos = new ObjectOutputStream(socket.getOutputStream());
-			System.out.println("Sending request to Socket Server");
-			if(i==4)oos.writeObject("exit");
+			System.out.println("Sending request to Socket Server ");
+			if(i==4)oos.writeObject(c);
 			else oos.writeObject(" " + host);
 			ois = new ObjectInputStream(socket.getInputStream());
 			String message = (String) ois.readObject();

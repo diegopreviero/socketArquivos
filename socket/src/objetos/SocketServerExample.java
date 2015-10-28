@@ -16,22 +16,23 @@ public class SocketServerExample {
         server = new ServerSocket(port);
        
        Cachorro x = new Cachorro(); 
-        while(true){
-            System.out.println("Waiting for client request");
+       // while(true){
+           // System.out.println("Waiting for client request");
             Socket socket = server.accept();
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-            String message = (String) ois.readObject().toString();
-            ois.getClass().getDeclaredMethods();
-            
-            System.out.println("Message Received: " + message);
+            //String message = (String) ois.readObject().toString();
+            Cachorro c = (Cachorro) ois.readObject();            
+            //System.out.println("Message Received: " + message);
+            System.out.println("Message Received: " + c.getRaca());
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-            oos.writeObject("Hi Client " + message);
+            oos.writeObject("Hi Client " /*+ message*/);
             ois.close();
             oos.close();
             socket.close();
-            if(message.equalsIgnoreCase("exit")) break;
-        }
-        System.out.println("Shutting down Socket server!!");
+            //if(message.equalsIgnoreCase("exit")) break;
+          //  if(c.getCor().equalsIgnoreCase("branca")) break;
+       // }
+        //System.out.println("Shutting down Socket server!!");
         server.close();
     }
     

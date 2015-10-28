@@ -19,18 +19,19 @@ public class SocketClientExample {
 		c.setRaca("vira lata");
 		c.setCor("preta");
 		
-		for(int i=0; i < 5; i++){
+		//for(int i=0; i < 5; i++){
 			socket = new Socket(host.getHostName(), 9876);
 			oos = new ObjectOutputStream(socket.getOutputStream());
-			System.out.println("Sending request to Socket Server ");
-			if(i==4)oos.writeObject(c);
-			else oos.writeObject(" " + host);
+			//System.out.println("Sending request to Socket Server ");
+			//if(i==4)oos.writeObject(c);
+			//else oos.writeObject(" " + host);
+			oos.writeObject(c);
 			ois = new ObjectInputStream(socket.getInputStream());
 			String message = (String) ois.readObject();
 			System.out.println("Message Cli: " + message);
 			ois.close();
 			oos.close();
-			Thread.sleep(100);
-		}
+			//Thread.sleep(100);
+		//}
 	}
 }

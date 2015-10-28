@@ -1,4 +1,4 @@
-package objetos;
+package objetos_04;
 
 public class Pessoa implements java.io.Serializable{
 

@@ -3,10 +3,8 @@ package objetos;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.ClassNotFoundException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import objetos.*;
 public class SocketServerExample {
      
     private static ServerSocket server;

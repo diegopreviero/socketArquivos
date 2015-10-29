@@ -1,0 +1,18 @@
+*SERVER
+-Lê OBJ
+-Executa função
+
+*CLIENTE
+-Índice da função
+-Nome da função
+-OBJ List (lista de arquivos)
+-OBJ List (lista com chave dos parâmetros)
+//tarefa // commando //
+
+
+
+No Servidor:
+CLI ==> envia o OBJ List com o nome dos arquivos e a função TRANSFERIR
+No Cliente:
+SRV ==> Lê o OBJ e executa o transferir.
+

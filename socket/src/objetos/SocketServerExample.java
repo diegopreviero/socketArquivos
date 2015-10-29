@@ -42,5 +42,5 @@ public class SocketServerExample {
  <Cliente> c = (Vector<Cliente>) oi.readObject();
  
  */
-     
+     //teste de stash
 }

@@ -69,7 +69,11 @@ public class tela {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tela t = new tela();
-				t.enviar();
+				/*System.out.println("1: " + pasta1);
+				System.out.println("2: " + pasta2);
+				System.out.println("G1: " + textField.getText());
+				System.out.println("G2: " + textField_1.getText());*/
+				t.enviar(textField.getText().replace("\\", "/"),textField_1.getText().replace("\\", "/"),Integer.parseInt(textField_2.getText()));
 			}
 		});
 		btnOk.setBounds(548, 129, 125, 23);
@@ -87,28 +91,38 @@ public class tela {
 		frmTransfernciaViaSocket.getContentPane().add(button);
 
 		textField = new JTextField();
-		textField.setBounds(66, 12, 472, 20);
+		textField.setBounds(118, 12, 420, 20);
 		frmTransfernciaViaSocket.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(66, 46, 472, 20);
+		textField_1.setBounds(118, 46, 420, 20);
 		frmTransfernciaViaSocket.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 
 		JLabel lblOrigem = new JLabel("Origem:");
-		lblOrigem.setBounds(10, 15, 46, 14);
+		lblOrigem.setBounds(10, 15, 90, 14);
 		frmTransfernciaViaSocket.getContentPane().add(lblOrigem);
 
 		JLabel lblDestino = new JLabel("Destino:");
-		lblDestino.setBounds(10, 49, 46, 14);
+		lblDestino.setBounds(10, 49, 90, 14);
 		frmTransfernciaViaSocket.getContentPane().add(lblDestino);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(118, 78, 420, 19);
+		frmTransfernciaViaSocket.getContentPane().add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblLimite = new JLabel("Limite:");
+		lblLimite.setBounds(10, 80, 70, 15);
+		frmTransfernciaViaSocket.getContentPane().add(lblLimite);
 	}
 
-	String pasta1 = "";
-	String pasta2 = "";
+	/*String pasta1;
+	String pasta2;*/
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textField_2;
 
 	public List<File> buscaRecursiva(File pasta, String ext) {
 		List<File> resultados = new ArrayList<File>();
@@ -136,11 +150,12 @@ public class tela {
 	}
 
 
-	public void enviar(){
+	public void enviar(String pasta1, String pasta2, int x){
 
-		pasta1 = textField.getText().replace("\\", "/");
-		pasta2 = textField.getText().replace("\\", "/");
-		
+		/*pasta1 = textField.getText().replace("\\", "/");
+		pasta2 = textField_1.getText().replace("\\", "/");*/
+		System.out.println("t: \n" + pasta1 + "\n" + pasta2 );
+		int cont = 0;
 		if (pasta1 != "" || pasta2 != ""){
 
 			try {
@@ -153,9 +168,12 @@ public class tela {
 					//System.out.println("Arquivo: " + pdf.getName());
 					//String local = pasta1.substring( pasta1.lastIndexOf("/")+1,pasta1.length() );
 					
-					System.out.println( "Arquivo: " + pdf.getAbsolutePath() );
-					
+					if (pdf.getAbsolutePath().length() > x){
+						cont++;
+						System.out.println(pdf.getAbsolutePath().length()+ " Arquivo: " + pdf.getAbsolutePath() );
+					}
 				}
+				System.out.println(cont);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
@@ -166,5 +184,6 @@ public class tela {
 		}
 
 	}
-
 }
+
+

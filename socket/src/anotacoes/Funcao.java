@@ -1,8 +1,8 @@
 package anotacoes;
 
-public class funcao {
+public class Funcao {
 
-	public funcao() {
+	public Funcao() {
 		// TODO Auto-generated constructor stub
 	}
 	

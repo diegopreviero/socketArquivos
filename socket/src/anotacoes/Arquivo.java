@@ -7,6 +7,7 @@ public class Arquivo {
 	}
 
 	String raiz;
-	String nome;
+	String origem;
+	String destino;
 	int tamanho;
 }

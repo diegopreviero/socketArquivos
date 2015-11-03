@@ -29,7 +29,10 @@ Nome da escola (licenca)
 
 
 ################## ARQUIVO PROPERTIES SERVIDOR ###################
-* url inicial
+* combo url inicial
+	emeftoto.zz.mu
+	...
+	
 * Lista de opcoes para combo terminal
 	ex: caminho interface bichos
 	- rundll
@@ -43,4 +46,16 @@ Nome da escola (licenca)
 	OBJ Propriedades
 
 
+controlas janelas por socket
+http://www.inf.udec.cl/~jlopez/DSWR/LABORATORIOS/java_poly.html
+
+http://www.guj.com.br/java/136538-o-que-um-protocolo
+
+http://www.guj.com.br/java/74218-chat-em-java--usando-socket-e-thread/2#506163
+
+http://negraoadriano.blogspot.com.br/2010/08/enviando-objetos-via-socket.html
+
+http://forum.clubedohardware.com.br/topic/1065890-resolvido-problema-ao-enviar-e-receber-objeto-por-socket/
+
+http://www.guj.com.br/java/238425-receber-e-enviar-objetos-usando-socket
 

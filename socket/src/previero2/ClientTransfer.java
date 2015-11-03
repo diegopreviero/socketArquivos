@@ -39,7 +39,7 @@ public class ClientTransfer {
 			is = sockServer.getInputStream();
 
 			String arquivo = "e:/kiko/macaco/banana/churrasco/cebola/abobrinha/3x4.bmp";
-			String diretorio = arquivo.substring(0, arquivo.lastIndexOf("/")+1);
+			//String diretorio = arquivo.substring(0, arquivo.lastIndexOf("/")+1);
 			
 			new CriarDiretorios(arquivo);
 

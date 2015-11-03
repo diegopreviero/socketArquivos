@@ -16,3 +16,31 @@ CLI ==> envia o OBJ List com o nome dos arquivos e a funcao TRANSFERIR
 No Cliente:
 SRV ==> Le o OBJ e executa o transferir.
 
+
+################## ARQUIVO PROPERTIES CLIENTE ###################
+Balao tray on/off no properties
+Nome do server 1
+Nome do server 2
+Porta server 1
+Porta server 2
+Nome da escola (licenca)
+
+#################################################################
+
+
+################## ARQUIVO PROPERTIES SERVIDOR ###################
+* url inicial
+* Lista de opcoes para combo terminal
+	ex: caminho interface bichos
+	- rundll
+	- cmd.exe
+	- vazio
+	-- Limpeza do CCleaner 
+
+##################################################################
+
+* Criar configurador de properties
+	OBJ Propriedades
+
+
+

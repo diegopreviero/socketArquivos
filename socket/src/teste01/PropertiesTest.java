@@ -24,9 +24,13 @@ public class PropertiesTest {
 			//System.setProperties(p);
 			//System.getProperties().list(System.out);
 
+			System.out.println("\n############# EXIBINDO POR CHAVE #############");
+			
 			System.out.println("Nome:  " + p.getProperty("nome"));
 			System.out.println("Idade: " + p.getProperty("idade"));
 			System.out.println("Sexo:  " + p.getProperty("sexo"));
+			
+			System.out.println("\n############# ALTERANDO VALOR DA CHAVE #############");
 
 			p.setProperty("nome", "jao");
 
@@ -34,6 +38,11 @@ public class PropertiesTest {
 			System.out.println("Idade: " + p.getProperty("idade"));
 			System.out.println("Sexo:  " + p.getProperty("sexo"));
 
+			System.out.println("\n############# ADICIONANDO NOVA CHAVE #############");
+			p.setProperty("IP", "192.168.0.10");
+			p.list(System.out);
+			
+			// SALVANDO ALTERACOES NO ARQUIVO 
 			FileOutputStream arquivoOut = new FileOutputStream("./src/teste01/config.cfg");
 			p.store(arquivoOut, null);
 

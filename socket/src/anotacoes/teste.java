@@ -13,12 +13,14 @@ public class teste {
 		v.add(new Arquivo("dois","","",2));
 		v.add(new Arquivo("tres","","",3));
 		
-		Funcao f = new Funcao(1,"teste","par1","par2",v);
+		Funcao f = new Funcao( 1, "teste", "par1", "par2", v );
 		
-		for (Arquivo arq : f.arquivo) {
-			System.out.println("index: " + f.index + " - nome: " + f.nome + " - par1: " + f.parametro1 + " - par2: " + f.parametro2);
-			System.out.println("raiz: " +arq.raiz + " - origem: " + arq.origem + " - destino: " + arq.destino + " - tamanho: " + arq.tamanho + "\n*********\n");
-		}
+		f.teste();
+		
+//		for (Arquivo arq : f.arquivo) {
+//			System.out.println("index: " + f.index + " - nome: " + f.nome + " - par1: " + f.parametro1 + " - par2: " + f.parametro2);
+//			System.out.println("raiz: " +arq.raiz + " - origem: " + arq.origem + " - destino: " + arq.destino + " - tamanho: " + arq.tamanho + "\n*********\n");
+//		}
 		
 	}
 

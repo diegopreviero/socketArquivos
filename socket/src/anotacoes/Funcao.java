@@ -21,45 +21,11 @@ public class Funcao {
 		this.arquivo = arquivo;
 	}
 
-	
-	public int getIndex() {
-		return index;
-	}
-
-	public void setIndex(int index) {
-		this.index = index;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getParametro1() {
-		return parametro1;
-	}
-
-	public void setParametro1(String parametro1) {
-		this.parametro1 = parametro1;
-	}
-
-	public String getParametro2() {
-		return parametro2;
-	}
-
-	public void setParametro2(String parametro2) {
-		this.parametro2 = parametro2;
-	}
-
-	public Vector<Arquivo> getArquivo() {
-		return arquivo;
-	}
-
-	public void setArquivo(Vector<Arquivo> arquivo) {
-		this.arquivo = arquivo;
+	public void teste(){
+		for (Arquivo arq : arquivo) {
+			System.out.println("index: " + index + " - nome: " + nome + " - par1: " + parametro1 + " - par2: " + parametro2);
+			System.out.println("raiz: " +arq.raiz + " - origem: " + arq.origem + " - destino: " + arq.destino + " - tamanho: " + arq.tamanho + "\n*********\n");
+		}
 	}
 
 }

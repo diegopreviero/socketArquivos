@@ -1,5 +1,7 @@
 package teste01;
 
+import java.net.InetAddress;
+
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -17,7 +19,16 @@ public class testes {
 			System.out.println("You chose to open this file: " +
 					chooser.getSelectedFile().getName());
 		}*/
-		
+		try {
+			InetAddress InetAddr = InetAddress.getLocalHost();	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		/*String x ;
+
+		System.out.println(x);*/
+
 	}
 
 }

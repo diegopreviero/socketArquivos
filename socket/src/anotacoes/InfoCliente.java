@@ -7,7 +7,7 @@ public class InfoCliente {
 	String versaoCliente;
 	String versaoJava;
 	String statusDeep;
-	String os;
+	String os = System.getProperty("os.name");
 	String escola; //setado no properties pelo servidor
 	String ip;
 	String hostName;

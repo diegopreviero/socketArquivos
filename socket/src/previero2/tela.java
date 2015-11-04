@@ -73,7 +73,8 @@ public class tela {
 				System.out.println("2: " + pasta2);
 				System.out.println("G1: " + textField.getText());
 				System.out.println("G2: " + textField_1.getText());*/
-				t.enviar(textField.getText().replace("\\", "/"),textField_1.getText().replace("\\", "/"),Integer.parseInt(textField_2.getText()));
+				t.enviar(textField.getText().replace("\\", "/"),textField_1.getText().replace("\\", "/"),
+						Integer.parseInt(textField_2.getText()));
 			}
 		});
 		btnOk.setBounds(548, 129, 125, 23);

@@ -1,17 +1,20 @@
 package anotacoes;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class Funcao {
 
 	public Funcao() { }
-	
+
 	int index;
 	String nome;
 	String parametro1;
 	String parametro2;
 	Vector<Arquivo> arquivo;
-	
+
 	public Funcao(int index, String nome, String parametro1, String parametro2, Vector<Arquivo> arquivo) {
 		super();
 		this.index = index;
@@ -23,9 +26,22 @@ public class Funcao {
 
 	public void teste(){
 		for (Arquivo arq : arquivo) {
-			System.out.println("index: " + index + " - nome: " + nome + " - par1: " + parametro1 + " - par2: " + parametro2);
-			System.out.println("raiz: " +arq.raiz + " - origem: " + arq.origem + " - destino: " + arq.destino + " - tamanho: " + arq.tamanho + "\n*********\n");
+			System.out.println("index: " + index + "\nnome: " + nome + "\npar1: " + parametro1 + "\npar2: " + parametro2);
+			System.out.println("raiz: " +arq.raiz + "\norigem: " + arq.origem + "\ndestino: " + arq.destino +
+					"\ntamanho: " + arq.tamanho + " bytes\n*********\n");
 		}
+
 	}
 
+	public List<File> buscaRecursiva(File pasta, String ext) {
+		List<File> resultados = new ArrayList<File>();
+		for (File f : pasta.listFiles()) {
+			if (f.isDirectory()) {
+				resultados.addAll(buscaRecursiva(f, ext));
+			} else if (f.getName().endsWith(ext)) {
+				resultados.add(f);
+			}
+		}
+		return resultados;
+	}
 }

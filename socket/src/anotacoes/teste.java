@@ -6,8 +6,10 @@ public class teste {
 
 	public static void main(String[] args) {
 
-		new PedirArquivo(); 
-
+		String origem = "E:/Documentos/downloads/Izaura";
+		String destino = "E:/";
+		new PedirArquivo(origem, destino);
+		
 	}
 
 }

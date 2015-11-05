@@ -6,15 +6,20 @@ import java.util.Vector;
 
 public class PedirArquivo {
 
-	public PedirArquivo() {
+	public PedirArquivo(String origem, String destino) {
 		
 		try {
 			Vector<Arquivo> v = new Vector<Arquivo>();
 			Funcao f = new Funcao( 1, "Pedir Arquivo", "", "", v );
-			List<File> arq2 = f.buscaRecursiva(new File("e:/socket"), "");
-
+			List<File> arq2 = f.buscaRecursiva(new File(origem), "");
+			String prefixo = origem.substring(0,origem.lastIndexOf("/")+1);
+			
 			for (File arq : arq2){
-				v.add(new Arquivo("", arq.getAbsolutePath(), "", arq.length() ));
+				String ori = arq.getAbsolutePath().replace("\\", "/");
+				
+				v.add(new Arquivo("", ori,
+						destino + ori.substring(prefixo.length(),ori.length()),
+						arq.length() ));
 			}
 
 			f.teste();			

@@ -28,7 +28,8 @@ public class Funcao {
 		for (Arquivo arq : arquivo) {
 			System.out.println("index: " + index + "\nnome: " + nome + "\npar1: " + parametro1 + "\npar2: " + parametro2);
 			System.out.println("raiz: " +arq.raiz + "\norigem: " + arq.origem + "\ndestino: " + arq.destino +
-					"\ntamanho: " + arq.tamanho + " bytes\n*********\n");
+					"\ntamanho: " + arq.tamanho + ""
+							+ " bytes\n**********************************************\n");
 		}
 
 	}

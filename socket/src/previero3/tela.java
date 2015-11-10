@@ -1,4 +1,4 @@
-package anotacoes;
+package previero3;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -10,9 +10,12 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
+
+import previero3.recursos.PedirArquivo;
+import previero3.recursos.PedirArquivo3;
 
 public class tela {
 
@@ -66,15 +69,34 @@ public class tela {
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+
 				String origem = tfOrigem.getText();
 				String destino = tfDestino.getText();
 
 				if(!destino.replace("\\", "/").endsWith("/")){
 					destino = destino + "/";
 				}
-				
-				new PedirArquivo(origem, destino);
+
+				//final String destino2 = destino;
+
+				new PedirArquivo3(origem, destino);
+
+
+				//CORRIGIR ESSAS VARIAVEIS REDUNDANTES
+
+				/*EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							new PedirArquivo(origem, destino2);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});*/
+
+
+
+
 
 			}
 		});
@@ -109,6 +131,12 @@ public class tela {
 		JLabel lblDestino = new JLabel("Destino:");
 		lblDestino.setBounds(10, 49, 90, 14);
 		frmTransfernciaViaSocket.getContentPane().add(lblDestino);
+		
+		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+			//JOptionPane.showMessageDialog(null, "win");
+			tfOrigem.setText("e:/socket/");
+			tfDestino.setText("e:/kiko/");
+		}
 	}
 
 	private JTextField tfOrigem;

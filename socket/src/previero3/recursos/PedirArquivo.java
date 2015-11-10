@@ -1,4 +1,4 @@
-package anotacoes;
+package previero3.recursos;
 
 import java.io.File;
 import java.util.List;

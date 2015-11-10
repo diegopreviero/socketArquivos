@@ -1,4 +1,4 @@
-package anotacoes;
+package previero3.recursos;
 
 public class Arquivo {
 

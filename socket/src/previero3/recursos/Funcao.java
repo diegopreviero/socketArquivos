@@ -1,6 +1,5 @@
 package previero3.recursos;
 
-import java.awt.EventQueue;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,35 +30,20 @@ public class Funcao {
 
 	public void teste(){
 
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					for (Arquivo arq : arquivo) {
-						ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
-						cliente.getFileFromServeR();
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		long inicio = System.currentTimeMillis();
+		for (Arquivo arq : arquivo) {
+			/*System.out.println("index: " + index + "\nnome: " + nome + "\npar1: " + parametro1 + "\npar2: " + parametro2);
+					System.out.println("raiz: " +arq.raiz + "\norigem: " + arq.origem + "\ndestino: " + arq.destino +
+							"\ntamanho: " + arq.tamanho + ""
+									+ " bytes\n**********************************************\n");*/
+
+			ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
+			cliente.getFileFromServeR();
+
+		}
 
 
-		//		for (Arquivo arq : arquivo) {
-		//			/*System.out.println("index: " + index + "\nnome: " + nome + "\npar1: " + parametro1 + "\npar2: " + parametro2);
-		//			System.out.println("raiz: " +arq.raiz + "\norigem: " + arq.origem + "\ndestino: " + arq.destino +
-		//					"\ntamanho: " + arq.tamanho + ""
-		//							+ " bytes\n**********************************************\n");*/
-		//			
-		//			ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
-		//			cliente.getFileFromServeR();
-		//			
-		//			//new PedirArquivo2(arq.origem, arq.destino);
-		//			
-		//		}
-
-
-		JOptionPane.showMessageDialog(null, "Envio Terminado!");
+		JOptionPane.showMessageDialog(null, "Envio Terminado!: " + ((System.currentTimeMillis()-inicio)/1000) + " segundos");
 	}
 
 	public List<File> buscaRecursiva(File pasta, String ext) {

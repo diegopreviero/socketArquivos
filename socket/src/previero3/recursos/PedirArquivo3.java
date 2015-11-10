@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Vector;
 
-public class PedirArquivo3 {
+public class PedirArquivo3 extends Thread {
 
 	String origem;
 	String destino;

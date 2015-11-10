@@ -1,4 +1,4 @@
-package previero3.recursos;
+package previero3.descarte;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
+
+import previero3.recursos.CriarDiretorios;
 
 public class PedirArquivo2 extends Thread{
 

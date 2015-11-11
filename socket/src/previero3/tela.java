@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import previero3.recursos.PedirArquivo3;
@@ -113,10 +114,16 @@ public class tela {
 		lblDestino.setBounds(10, 49, 90, 14);
 		frmTransfernciaViaSocket.getContentPane().add(lblDestino);
 
+		//JOptionPane.showMessageDialog(null, System.getProperty("os.name"));
+		
 		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
 			//JOptionPane.showMessageDialog(null, "win");
 			tfOrigem.setText("e:/socket/");
 			tfDestino.setText("e:/kiko/");
+		}else if (System.getProperty("os.name").toLowerCase().contains("linux")) {
+			//JOptionPane.showMessageDialog(null, "win");
+			tfOrigem.setText("/home/khaemhat/socket/");
+			tfDestino.setText("/home/khaemhat/kiko/");
 		}
 		
 	}

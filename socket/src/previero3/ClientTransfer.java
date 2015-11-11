@@ -32,7 +32,8 @@ public class ClientTransfer {
 		
 		try {
 			System.out.println("Conectando com Servidor porta 13267");
-			sockServer = new Socket("SERVER", 13267);
+			//sockServer = new Socket("SERVER", 13267);
+			sockServer = new Socket("192.168.0.102", 13267);
 			
 			/***************************/
 			

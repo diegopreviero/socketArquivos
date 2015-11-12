@@ -7,8 +7,6 @@ import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
-import previero3.ClientTransfer;
-
 public class Funcao {
 
 	public Funcao() { }
@@ -32,25 +30,27 @@ public class Funcao {
 
 		long inicio = System.currentTimeMillis();
 		for (Arquivo arq : arquivo) {
-			/*System.out.println("index: " + index + "\nnome: " + nome + "\npar1: " + parametro1 + "\npar2: " + parametro2);
-					System.out.println("raiz: " +arq.raiz + "\norigem: " + arq.origem + "\ndestino: " + arq.destino +
-							"\ntamanho: " + arq.tamanho + ""
-									+ " bytes\n**********************************************\n");*/
 
-			/*ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
-			cliente.getFileFromServeR();*/
-			
+			//			System.out.println("index: " + index + "\nnome: " + nome + "\npar1: "
+			//					+ parametro1 + "\npar2: " + parametro2);
+			//			System.out.println("raiz: " +arq.raiz + "\norigem: " + arq.origem
+			//					+ "\ndestino: "	+ arq.destino + "\ntamanho: " + arq.tamanho + ""
+			//					+ " bytes\n**********************************************\n");
+
+			//			ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
+			//			cliente.getFileFromServeR();
+
 			try {
-				new previero3.multi.Cliente("SERVER",1024 ,arq.origem, arq.destino).start();	
+				new previero3.multi.Cliente("SERVER", 1024, arq.origem, arq.destino).start();	
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, e);
 			}
-			
 
 		}
 
 
-		JOptionPane.showMessageDialog(null, "Envio Terminado!: " + ((System.currentTimeMillis()-inicio)/1000) + " segundos");
+		JOptionPane.showMessageDialog(null, "Envio Terminado!: "
+				+ ((System.currentTimeMillis()-inicio)/1000) + " segundos");
 	}
 
 	public List<File> buscaRecursiva(File pasta, String ext) {

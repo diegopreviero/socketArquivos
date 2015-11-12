@@ -1,7 +1,14 @@
 package previero3.multi;
 
-import java.net.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Servidor implements Runnable {
 
@@ -48,24 +55,7 @@ class TrataCliente extends Thread {
 	}
 
 	public void run() {
-	/*	try {
-			ObjectInputStream oi = new ObjectInputStream(client.getInputStream());
-			System.out.println("Chegou isso:" + oi.readObject());
 
-			client.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(1);
-		}*/
-		
-		
-		
-		
-		
-		
-		
-		
 		OutputStream socketOut = null;
 		FileInputStream fileIn = null;
 
@@ -73,71 +63,60 @@ class TrataCliente extends Thread {
 		BufferedReader read;
 		String origem;
 
-		//while (true){
+		try {
+			System.out.println("Porta de conexao aberta 13267");
+			System.out.println("Conexao recebida pelo cliente");
 
-			try {
-				System.out.println("Porta de conexao aberta 13267");
-				System.out.println("Conexao recebida pelo cliente");
+			/**************************************/
+			entrada = client.getInputStream();
+			read = new BufferedReader(new InputStreamReader(entrada));
+			origem = read.readLine();
+			/**************************************/
 
-				/**************************************/
-				entrada = client.getInputStream();
-				read = new BufferedReader(new InputStreamReader(entrada));
-				origem = read.readLine();
-				/**************************************/
+			byte[] cbuffer = new byte[1024];
+			int bytesRead;
 
-				byte[] cbuffer = new byte[1024];
-				int bytesRead;
+			File file = new File(origem);
+			fileIn = new FileInputStream(file);
+			System.out.println("Lendo arquivo...");
 
-				File file = new File(origem);
-				fileIn = new FileInputStream(file);
-				System.out.println("Lendo arquivo...");
+			socketOut = client.getOutputStream();
 
-				socketOut = client.getOutputStream();
+			System.out.println("Enviando Arquivo...");
+			while ((bytesRead = fileIn.read(cbuffer)) != -1) {
+				socketOut.write(cbuffer, 0, bytesRead);
+				socketOut.flush();
+			}
 
-				System.out.println("Enviando Arquivo...");
-				while ((bytesRead = fileIn.read(cbuffer)) != -1) {
-					socketOut.write(cbuffer, 0, bytesRead);
-					socketOut.flush();
-				}
-				
-				System.out.println("Arquivo Enviado!");
-				client.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (socketOut != null) {
-					try {
-						socketOut.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-
-				if (client != null) {
-					try {
-						client.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-
-				if (fileIn != null) {
-					try {
-						fileIn.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+			System.out.println("Arquivo Enviado!");
+			client.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (socketOut != null) {
+				try {
+					socketOut.close();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			}
-	//	}
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+			if (client != null) {
+				try {
+					client.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (fileIn != null) {
+				try {
+					fileIn.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 	}
 }

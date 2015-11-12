@@ -1,10 +1,14 @@
 package previero3.multi;
 
-import java.net.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.net.Socket;
 
 import previero3.recursos.CriarDiretorios;
-
-import java.io.*;
 
 public class Cliente extends Thread {
 
@@ -21,48 +25,13 @@ public class Cliente extends Thread {
 		this.destino = destino;
 	}
 
-	/*public static void main(String[] args) {
-		try {
-
-			String server = "SERVER";
-			int porta = 1024;
-
-			new Cliente(server, porta).start();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/
-
 	public void run() {
-		/*try {
-
-		
-				
-				ObjectOutputStream oo = new ObjectOutputStream(s.getOutputStream());
-				System.out.println("Conectado a " + server + ":" + porta );
-				oo.writeObject(getName());
-				Thread.sleep(2000);
-				s.close();
-		
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		*/
-		
-		
-		
-		
-		
 
 		Socket s = null;
 		FileOutputStream fos = null;
 		InputStream is = null;
 
 		try {
-			
 			
 			System.out.println("Conectando com Servidor porta 13267");
 			//sockServer = new Socket("SERVER", 13267);
@@ -123,12 +92,6 @@ public class Cliente extends Thread {
 				}
 			}
 		}
-		
-		
-		
-		
-		
-		
 		
 	}
 }

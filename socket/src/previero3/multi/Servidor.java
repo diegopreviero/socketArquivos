@@ -64,7 +64,7 @@ class TrataCliente extends Thread {
 		String origem;
 
 		try {
-			System.out.println("Porta de conexao aberta 13267");
+			System.out.println("Porta de conexao aberta 1024");
 			System.out.println("Conexao recebida pelo cliente");
 
 			/**************************************/

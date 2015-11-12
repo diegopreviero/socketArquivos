@@ -1,45 +1,82 @@
-package previero3;
+package previero3.multi;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.net.Socket;
+import java.net.*;
 
 import previero3.recursos.CriarDiretorios;
 
-public class ClientTransfer {
+import java.io.*;
 
-	public ClientTransfer(String origem, String destino) {
-		super();
-		this.origem = origem;
-		this.destino = destino;
-	
-	}
+public class Cliente extends Thread {
 
+	private String server;
+	private int porta;
+	public static int i ;
 	String origem;
 	String destino;
 	
-	public void getFileFromServeR() {
-		Socket sockServer = null;
+	public Cliente(String server, int porta, String origem, String destino) {
+		this.server = server;
+		this.porta = porta;
+		this.origem = origem;
+		this.destino = destino;
+	}
+
+	/*public static void main(String[] args) {
+		try {
+
+			String server = "SERVER";
+			int porta = 1024;
+
+			new Cliente(server, porta).start();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
+
+	public void run() {
+		/*try {
+
+		
+				
+				ObjectOutputStream oo = new ObjectOutputStream(s.getOutputStream());
+				System.out.println("Conectado a " + server + ":" + porta );
+				oo.writeObject(getName());
+				Thread.sleep(2000);
+				s.close();
+		
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		*/
+		
+		
+		
+		
+		
+
+		Socket s = null;
 		FileOutputStream fos = null;
 		InputStream is = null;
 
 		try {
+			
+			
 			System.out.println("Conectando com Servidor porta 13267");
 			//sockServer = new Socket("SERVER", 13267);
-			sockServer = new Socket("SERVER", 1024);
+			s = new Socket(server, porta);
+			//sockServer = new Socket("SERVER", 1024);
 			//sockServer = new Socket("192.168.0.102", 13267);
 			
 			/***************************/
-			OutputStream saida = sockServer.getOutputStream();            
+			OutputStream saida = s.getOutputStream();            
 			PrintStream escrita = new PrintStream(saida);
 			escrita.println(origem);
 			/**************************/
 			
-			is = sockServer.getInputStream();
+			is = s.getInputStream();
 
 			new CriarDiretorios(destino);
 
@@ -55,13 +92,16 @@ public class ClientTransfer {
 				fos.flush();
 			}
 			
+			Thread.sleep(2000);
+			s.close();
 			System.out.println("Arquivo recebido!");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (sockServer != null) {
+			if (s != null) {
 				try {
-					sockServer.close();
+					s.close();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -83,6 +123,12 @@ public class ClientTransfer {
 				}
 			}
 		}
-
+		
+		
+		
+		
+		
+		
+		
 	}
 }

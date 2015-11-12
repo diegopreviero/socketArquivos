@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import previero3.recursos.PedirArquivo3;
@@ -76,10 +75,24 @@ public class tela {
 					destino = destino + "/";
 				}
 
-				new PedirArquivo3(origem, destino).start();
 				
+			
+					new PedirArquivo3(origem, destino + "-A").start();
+					new PedirArquivo3(origem, destino + "-B").start();
+					new PedirArquivo3(origem, destino + "-C").start();
+					new PedirArquivo3(origem, destino + "-D").start();
+					new PedirArquivo3(origem, destino + "-E").start();
+					new PedirArquivo3(origem, destino + "-F").start();
+					new PedirArquivo3(origem, destino + "-G").start();
+					new PedirArquivo3(origem, destino + "-H").start();
+					new PedirArquivo3(origem, destino + "-I").start();
+					new PedirArquivo3(origem, destino + "-J").start();
+					
+			
+				//new PedirArquivo3(origem, destino).start();
+				tfDestino.requestFocus();
 				// MEXENDO AKI !!!
-				
+
 			}
 		});
 		btnOk.setBounds(548, 129, 125, 23);
@@ -114,18 +127,14 @@ public class tela {
 		lblDestino.setBounds(10, 49, 90, 14);
 		frmTransfernciaViaSocket.getContentPane().add(lblDestino);
 
-		//JOptionPane.showMessageDialog(null, System.getProperty("os.name"));
-		
 		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-			//JOptionPane.showMessageDialog(null, "win");
 			tfOrigem.setText("e:/socket/");
 			tfDestino.setText("e:/kiko/");
 		}else if (System.getProperty("os.name").toLowerCase().contains("linux")) {
-			//JOptionPane.showMessageDialog(null, "win");
 			tfOrigem.setText("/home/khaemhat/socket/");
 			tfDestino.setText("/home/khaemhat/kiko/");
 		}
-		
+
 	}
 
 	private JTextField tfOrigem;

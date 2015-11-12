@@ -37,8 +37,15 @@ public class Funcao {
 							"\ntamanho: " + arq.tamanho + ""
 									+ " bytes\n**********************************************\n");*/
 
-			ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
-			cliente.getFileFromServeR();
+			/*ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
+			cliente.getFileFromServeR();*/
+			
+			try {
+				new previero3.multi.Cliente("SERVER",1024 ,arq.origem, arq.destino).start();	
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e);
+			}
+			
 
 		}
 

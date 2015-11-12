@@ -75,23 +75,9 @@ public class tela {
 					destino = destino + "/";
 				}
 
-				
-			
-					new PedirArquivo3(origem, destino + "-A").start();
-					new PedirArquivo3(origem, destino + "-B").start();
-					new PedirArquivo3(origem, destino + "-C").start();
-					new PedirArquivo3(origem, destino + "-D").start();
-					new PedirArquivo3(origem, destino + "-E").start();
-					new PedirArquivo3(origem, destino + "-F").start();
-					new PedirArquivo3(origem, destino + "-G").start();
-					new PedirArquivo3(origem, destino + "-H").start();
-					new PedirArquivo3(origem, destino + "-I").start();
-					new PedirArquivo3(origem, destino + "-J").start();
-					
-			
-				//new PedirArquivo3(origem, destino).start();
+				new PedirArquivo3(origem, destino).start();
+
 				tfDestino.requestFocus();
-				// MEXENDO AKI !!!
 
 			}
 		});

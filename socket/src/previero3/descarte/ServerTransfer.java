@@ -1,4 +1,4 @@
-package previero3;
+package previero3.descarte;
 
 import java.io.BufferedReader;
 import java.io.File;

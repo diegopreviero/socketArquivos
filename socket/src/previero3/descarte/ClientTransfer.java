@@ -1,4 +1,4 @@
-package previero3;
+package previero3.descarte;
 
 import java.io.File;
 import java.io.FileOutputStream;

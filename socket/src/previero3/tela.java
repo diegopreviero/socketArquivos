@@ -3,9 +3,6 @@ package previero3;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -14,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import previero3.recursos.PedirArquivo3;
+import previero3.recursos.PedirArquivo;
 
 public class tela {
 
@@ -24,7 +21,7 @@ public class tela {
 	private JTextField tfDestino;
 	private String origem;
 	private String destino;
-	
+
 	public String getOrigem() {
 		return origem;
 	}
@@ -38,11 +35,11 @@ public class tela {
 	}
 
 	public void setDestino(String destino) {
-		
+
 		if(!destino.replace("\\", "/").endsWith("/")){
 			destino = destino + "/";
 		}		
-		
+
 		this.destino = destino;
 	}
 
@@ -122,7 +119,8 @@ public class tela {
 
 				setOrigem(tfOrigem.getText());
 				setDestino(tfDestino.getText());
-				new PedirArquivo3(origem, destino).start();
+
+				new PedirArquivo(origem, destino).start();
 
 				tfDestino.requestFocus();
 
@@ -151,18 +149,6 @@ public class tela {
 
 	}
 
-	public List<File> buscaRecursiva(File pasta, String ext) {
-		List<File> resultados = new ArrayList<File>();
-		for (File f : pasta.listFiles()) {
-			if (f.isDirectory()) {
-				resultados.addAll(buscaRecursiva(f, ext));
-			} else if (f.getName().endsWith(ext)) {
-				resultados.add(f);
-			}
-		}
-		return resultados;
-	}
-
 	public String choose (String op){
 
 		JFileChooser chooser = new JFileChooser();
@@ -175,10 +161,8 @@ public class tela {
 				return getOrigem();	
 			}else {
 				return getDestino();
-			}
-			
+			}			
 		}
-
 	}
 
 }

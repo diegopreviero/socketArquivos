@@ -121,7 +121,7 @@ public class tela {
 				setDestino(tfDestino.getText());
 
 				//new PedirArquivo(origem, destino).start();
-
+				new Cliente("SERVER", 1024, "origem", "destino").start();
 				tfDestino.requestFocus();
 
 			}

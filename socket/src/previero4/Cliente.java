@@ -4,10 +4,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.net.InetAddress;
 import java.net.Socket;
 
+import javax.swing.JOptionPane;
+
+import objetos_04.Cachorro;
 import previero3.recursos.CriarDiretorios;
 
 public class Cliente extends Thread {
@@ -39,35 +45,59 @@ public class Cliente extends Thread {
 			//sockServer = new Socket("SERVER", 1024);
 			//sockServer = new Socket("192.168.0.102", 13267);
 			
+			
+			
+			
+			ObjectOutputStream oos = null;
+			ObjectInputStream ois = null;
+
+			Cachorro c = new Cachorro();
+			c.setRaca("vira lata");
+			c.setCor("preta");
+
+
+			oos = new ObjectOutputStream(s.getOutputStream());
+			oos.writeObject(c);
+			ois = new ObjectInputStream(s.getInputStream());
+			String message = (String) ois.readObject();
+			JOptionPane.showMessageDialog(null, message);
+			ois.close();
+			oos.close();
+			s.close();
+			
+			
+			
+			
+			
 			/***************************/
-			OutputStream saida = s.getOutputStream();            
-			PrintStream escrita = new PrintStream(saida);
-			escrita.println(origem);
+//			OutputStream saida = s.getOutputStream();            
+//			PrintStream escrita = new PrintStream(saida);
+//			escrita.println(origem);
 			/**************************/
 			
-			is = s.getInputStream();
-
-			new CriarDiretorios(destino);
-
-			fos = new FileOutputStream(new File(destino));
-			System.out.println("Arquivo Local Criado: " + destino);
-			
-			byte[] cbuffer = new byte[1024];
-			int bytesRead;
-			
-			System.out.println("Recebendo arquivo...");
-			while ((bytesRead = is.read(cbuffer)) != -1) {
-				fos.write(cbuffer, 0, bytesRead);
-				fos.flush();
-			}
-			
-			Thread.sleep(2000);
-			s.close();
-			System.out.println("Arquivo recebido!");
+//			is = s.getInputStream();
+//
+//			new CriarDiretorios(destino);
+//
+//			fos = new FileOutputStream(new File(destino));
+//			System.out.println("Arquivo Local Criado: " + destino);
+//			
+//			byte[] cbuffer = new byte[1024];
+//			int bytesRead;
+//			
+//			System.out.println("Recebendo arquivo...");
+//			while ((bytesRead = is.read(cbuffer)) != -1) {
+//				fos.write(cbuffer, 0, bytesRead);
+//				fos.flush();
+//			}
+//			
+//			Thread.sleep(2000);
+//			s.close();
+//			System.out.println("Arquivo recebido!");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		}/* finally {
 			if (s != null) {
 				try {
 					s.close();
@@ -91,7 +121,7 @@ public class Cliente extends Thread {
 					e1.printStackTrace();
 				}
 			}
-		}
+		}*/
 		
 	}
 }

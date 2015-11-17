@@ -6,9 +6,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import javax.swing.JOptionPane;
+
+import objetos_04.Cachorro;
 
 public class Servidor implements Runnable {
 
@@ -66,14 +72,29 @@ class TrataCliente extends Thread {
 		try {
 			System.out.println("Porta de conexao aberta 1024");
 			System.out.println("Conexao recebida pelo cliente");
+			
+			
 
-			/**************************************/
-			entrada = client.getInputStream();
-			read = new BufferedReader(new InputStreamReader(entrada));
-			origem = read.readLine();
-			/**************************************/
 
-			byte[] cbuffer = new byte[1024];
+			ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
+			Cachorro c = (Cachorro) ois.readObject();            
+			JOptionPane.showMessageDialog(null, "Recebido: " + c.getRaca());
+			ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
+			oos.writeObject("From Server: " + c.getCor());
+			ois.close();
+			oos.close();
+			client.close();
+			client.close();
+			
+			
+
+			//**************************************
+//			entrada = client.getInputStream();
+//			read = new BufferedReader(new InputStreamReader(entrada));
+//			origem = read.readLine();
+			//**************************************
+
+		/*	byte[] cbuffer = new byte[1024];
 			int bytesRead;
 
 			File file = new File(origem);
@@ -89,10 +110,10 @@ class TrataCliente extends Thread {
 			}
 
 			System.out.println("Arquivo Enviado!");
-			client.close();
+			client.close();*/
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		}/* finally {
 			if (socketOut != null) {
 				try {
 					socketOut.close();
@@ -116,7 +137,9 @@ class TrataCliente extends Thread {
 					e.printStackTrace();
 				}
 			}
-		}
+		}*/
+		
+		
 
 	}
 }

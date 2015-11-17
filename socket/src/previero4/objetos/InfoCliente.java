@@ -1,8 +1,27 @@
-package previero3.recursos;
+package previero4.objetos;
 
-public class InfoCliente {
+import java.io.Serializable;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
-	public InfoCliente() { }
+public class InfoCliente implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public InfoCliente() { 
+		
+		InetAddress host = null;
+		try {
+			host = InetAddress.getLocalHost();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		setIp(host.getHostAddress());
+		setHostName(host.getHostName());
+	}
 	
 	String versaoCliente;
 	String versaoJava;

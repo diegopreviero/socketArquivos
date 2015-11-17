@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 import objetos_04.Cachorro;
 import previero3.recursos.CriarDiretorios;
+import previero4.objetos.InfoCliente;
 
 public class Cliente extends Thread {
 
@@ -46,21 +47,34 @@ public class Cliente extends Thread {
 			//sockServer = new Socket("192.168.0.102", 13267);
 			
 			
+			/*
+			 * 
+			 * RECEBE OBJETO FUNCAO
+			 * 
+			 * SE FUNCAO FOR INFOCLIENTE
+			 * 		CRIA O OBJETO CLIENTE E ENVIA 
+			 * 
+			 * 
+			 */
+			
 			
 			
 			ObjectOutputStream oos = null;
 			ObjectInputStream ois = null;
 
-			Cachorro c = new Cachorro();
-			c.setRaca("vira lata");
-			c.setCor("preta");
-
+			InfoCliente c = new InfoCliente();
 
 			oos = new ObjectOutputStream(s.getOutputStream());
 			oos.writeObject(c);
 			ois = new ObjectInputStream(s.getInputStream());
 			String message = (String) ois.readObject();
-			JOptionPane.showMessageDialog(null, message);
+			
+			if (message.equals("arquivo")){
+				JOptionPane.showMessageDialog(null, message);
+			}else{
+				JOptionPane.showMessageDialog(null, "Outro:" + message);
+			}
+			
 			ois.close();
 			oos.close();
 			s.close();

@@ -15,6 +15,7 @@ import java.net.Socket;
 import javax.swing.JOptionPane;
 
 import objetos_04.Cachorro;
+import previero4.objetos.InfoCliente;
 
 public class Servidor implements Runnable {
 
@@ -77,10 +78,11 @@ class TrataCliente extends Thread {
 
 
 			ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
-			Cachorro c = (Cachorro) ois.readObject();            
-			JOptionPane.showMessageDialog(null, "Recebido: " + c.getRaca());
+			InfoCliente c = (InfoCliente) ois.readObject();            
+			JOptionPane.showMessageDialog(null, "Recebido: " + c.getHostName());
 			ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
-			oos.writeObject("From Server: " + c.getCor());
+			//oos.writeObject("From Server: " + c.getIp());
+			oos.writeObject("arquivo");//resposta para o cliente
 			ois.close();
 			oos.close();
 			client.close();

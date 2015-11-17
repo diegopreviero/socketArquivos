@@ -122,7 +122,6 @@ public class tela {
 
 				//new PedirArquivo(origem, destino).start();
 
-
 				tfDestino.requestFocus();
 
 			}

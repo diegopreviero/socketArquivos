@@ -1,13 +1,18 @@
 package previero3.recursos;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
-public class Funcao {
+import previero4.objetos.InfoCliente;
+
+public class Funcao implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	public Funcao() { }
 
@@ -16,6 +21,7 @@ public class Funcao {
 	String parametro1;
 	String parametro2;
 	Vector<Arquivo> arquivo;
+	InfoCliente info;
 
 	public Funcao(int index, String nome, String parametro1, String parametro2, Vector<Arquivo> arquivo) {
 		super();
@@ -25,17 +31,18 @@ public class Funcao {
 		this.parametro2 = parametro2;
 		this.arquivo = arquivo;
 	}
+	
+	public Funcao(int index, String nome, InfoCliente info) {
+		super();
+		this.index = index;
+		this.nome = nome;
+		this.info = info;
+	}
 
 	public void teste(){
 
 		long inicio = System.currentTimeMillis();
 		for (Arquivo arq : arquivo) {
-
-			//			System.out.println("index: " + index + "\nnome: " + nome + "\npar1: "
-			//					+ parametro1 + "\npar2: " + parametro2);
-			//			System.out.println("raiz: " +arq.raiz + "\norigem: " + arq.origem
-			//					+ "\ndestino: "	+ arq.destino + "\ntamanho: " + arq.tamanho + ""
-			//					+ " bytes\n**********************************************\n");
 
 			//			ClientTransfer cliente = new ClientTransfer(arq.origem, arq.destino);
 			//			cliente.getFileFromServeR();

@@ -3,6 +3,7 @@ package previero4.objetos;
 import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Properties;
 
 public class InfoCliente implements Serializable{
 
@@ -12,7 +13,7 @@ public class InfoCliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	public InfoCliente() { 
-		
+
 		InetAddress host = null;
 		try {
 			host = InetAddress.getLocalHost();
@@ -21,8 +22,10 @@ public class InfoCliente implements Serializable{
 		}
 		setIp(host.getHostAddress());
 		setHostName(host.getHostName());
+		/*Properties p = new Properties();
+		setVersaoJava(p.getProperty(key));*/
 	}
-	
+
 	String versaoCliente;
 	String versaoJava;
 	String statusDeep;
@@ -30,7 +33,7 @@ public class InfoCliente implements Serializable{
 	String escola; //setado no properties pelo servidor
 	String ip;
 	String hostName;
-	
+
 	public String getVersaoCliente() {
 		return versaoCliente;
 	}

@@ -56,25 +56,25 @@ public class Cliente extends Thread {
 			System.out.println("Conectando com Servidor porta 13267");
 
 			s = new Socket(server, porta);
-			ObjectOutputStream oos = null;
-			ObjectInputStream ois = null;
-
-			oos = new ObjectOutputStream(s.getOutputStream());
-			oos.writeObject(funcao);
-			ois = new ObjectInputStream(s.getInputStream());
-			String message = (String) ois.readObject();
-
-			if (message.equals("arquivo")){
-				JOptionPane.showMessageDialog(null, message);
-			}else{
-				JOptionPane.showMessageDialog(null, "Outro:" + message);
-			}
-
-			ois.close();//atencao
-			oos.close();
-			//s.close();//copiado para antes do catch
-
-			if(funcao.getIndex() == 3){
+//			ObjectOutputStream oos = null;
+//			ObjectInputStream ois = null;
+//
+//			oos = new ObjectOutputStream(s.getOutputStream());
+//			oos.writeObject(funcao);
+//			ois = new ObjectInputStream(s.getInputStream());
+//			String message = (String) ois.readObject();
+//
+//			if (message.equals("arquivo")){
+//				JOptionPane.showMessageDialog(null, message);
+//			}else{
+//				JOptionPane.showMessageDialog(null, "Outro:" + message);
+//			}
+//
+//			ois.close();
+//			oos.close();
+//			//s.close();//copiado para antes do catch
+//
+//			if(funcao.getIndex() == 3){
 
 				/***************************/
 				OutputStream saida = s.getOutputStream();            
@@ -101,7 +101,7 @@ public class Cliente extends Thread {
 				Thread.sleep(2000);
 				//s.close();
 				System.out.println("Arquivo recebido!");
-			}
+	//		}
 			
 			s.close();
 

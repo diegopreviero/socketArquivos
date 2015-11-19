@@ -74,24 +74,23 @@ class TrataCliente extends Thread {
 			System.out.println("Porta de conexao aberta 1024");
 			System.out.println("Conexao recebida pelo cliente");
 
-			ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
-			Funcao f = (Funcao) ois.readObject();
-			JOptionPane.showMessageDialog(null, "Recebido: " + f.getDescricao());
-			ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
-			oos.writeObject(f.getDescricao());//resposta para o cliente
-			//oos.writeObject("arquivo");//resposta para o cliente
-			ois.close();
-			oos.close();
-			//client.close();//atencao
-			//client.close();//copiado para antes do catch
-
-			System.out.println(f.getIndex() + " " + f.getDescricao());
-			
-			if (f.getIndex() == 1) {
-				JOptionPane.showMessageDialog(null, "1");
-			} else if (f.getIndex() == 2) {
-				JOptionPane.showMessageDialog(null, "2");
-			} else if (f.getIndex() == 3){
+//			ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
+//			Funcao f = (Funcao) ois.readObject();
+//			JOptionPane.showMessageDialog(null, "Recebido: " + f.getDescricao());
+//			ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
+//			oos.writeObject(f.getDescricao());//resposta para o cliente
+//			ois.close();
+//			oos.close();
+//			/*client.close();atencao
+//			client.close();copiado para antes do catch*/
+//
+//			System.out.println(f.getIndex() + " " + f.getDescricao());
+//			
+//			if (f.getIndex() == 1) {
+//				JOptionPane.showMessageDialog(null, "1");
+//			} else if (f.getIndex() == 2) {
+//				JOptionPane.showMessageDialog(null, "2");
+//			} else if (f.getIndex() == 3){
 
 				//**************************************
 				entrada = client.getInputStream();
@@ -115,9 +114,9 @@ class TrataCliente extends Thread {
 				}
 
 				System.out.println("Arquivo Enviado!");
-				//client.close();  ????
+				/*client.close();  ????*/
 
-			}
+	//		}
 
 			client.close();
 

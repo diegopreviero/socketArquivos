@@ -123,10 +123,17 @@ public class tela {
 				setDestino(tfDestino.getText());
 
 				//new PedirArquivo(origem, destino).start();
+				
 				//new Cliente("SERVER", 1024, "origem", "destino").start();
 				
-				Funcao funcao = new Funcao(2,"info", new InfoCliente());
-				new Cliente(funcao).start();
+				
+				new PedirArquivo(origem, destino).start();
+				//new Cliente("SERVER", 1024, "origem", "destino").start();
+
+				
+				
+//				Funcao funcao = new Funcao(2,"info", new InfoCliente());
+//				new Cliente(funcao).start();
 				
 				
 				/*InfoCliente info = new InfoCliente();

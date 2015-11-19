@@ -19,7 +19,7 @@ public class Cliente extends Thread {
 
 	private String server;
 	private int porta;
-	public static int i ;
+	//public static int i ;
 	String origem;
 	String destino;
 	Funcao funcao;
@@ -35,6 +35,14 @@ public class Cliente extends Thread {
 		this.porta = porta;
 		this.origem = origem;
 		this.destino = destino;
+	}
+	
+	public Cliente(String server, int porta, String origem, String destino, Funcao funcao) {
+		this.server = server;
+		this.porta = porta;
+		this.origem = origem;
+		this.destino = destino;
+		this.funcao = funcao;
 	}
 
 	public void run() {
@@ -64,7 +72,7 @@ public class Cliente extends Thread {
 
 			ois.close();//atencao
 			oos.close();
-			s.close();
+			//s.close();//copiado para antes do catch
 
 			if(funcao.getIndex() == 3){
 
@@ -94,6 +102,8 @@ public class Cliente extends Thread {
 				s.close();
 				System.out.println("Arquivo recebido!");
 			}
+			
+			s.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -22,7 +22,7 @@ public class PedirArquivo extends Thread {
 		System.out.println("run");
 		try {
 			Vector<Arquivo> v = new Vector<Arquivo>();
-			Funcao f = new Funcao( 1, "Pedir Arquivo", "", "", v );
+			Funcao f = new Funcao( 3, "Pedir Arquivo", "", "", v );
 			List<File> arq2 = f.buscaRecursiva(new File(origem), "");
 			String prefixo = origem.substring(0,origem.lastIndexOf("/")+1);
 

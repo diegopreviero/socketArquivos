@@ -109,7 +109,8 @@ public class Funcao implements Serializable {
 		for (Arquivo arq : arquivo) {
 
 			try {
-				new previero4.Cliente("SERVER", 1024, arq.origem, arq.destino).start();	
+//				new previero4.Cliente("SERVER", 1024, arq.origem, arq.destino).start();
+				new previero4.Cliente("SERVER", 1024, arq.origem, arq.destino, this).start();
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, e);
 			}

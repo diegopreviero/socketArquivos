@@ -1,6 +1,13 @@
 package previero4.objetos;
 
-public class Arquivo {
+import java.io.Serializable;
+
+public class Arquivo implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public Arquivo() { }
 

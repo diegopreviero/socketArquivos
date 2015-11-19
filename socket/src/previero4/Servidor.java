@@ -76,13 +76,14 @@ class TrataCliente extends Thread {
 
 			ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
 			Funcao f = (Funcao) ois.readObject();
-			JOptionPane.showMessageDialog(null, "Recebido: " + f.getInfo().getHostName());
+			JOptionPane.showMessageDialog(null, "Recebido: " + f.getDescricao());
 			ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
-			oos.writeObject("arquivo");//resposta para o cliente
+			oos.writeObject(f.getIndex());//resposta para o cliente
+			//oos.writeObject("arquivo");//resposta para o cliente
 			ois.close();
 			oos.close();
-			client.close();//atencao
-			client.close();
+			//client.close();//atencao
+			//client.close();//copiado para antes do catch
 
 			if (f.getIndex() == 3){
 
@@ -108,9 +109,11 @@ class TrataCliente extends Thread {
 				}
 
 				System.out.println("Arquivo Enviado!");
-				client.close();
+				//client.close();  ????
 
 			}
+			
+			client.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

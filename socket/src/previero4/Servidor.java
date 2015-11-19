@@ -14,8 +14,7 @@ import java.net.Socket;
 
 import javax.swing.JOptionPane;
 
-import objetos_04.Cachorro;
-import previero4.objetos.InfoCliente;
+import previero4.objetos.Funcao;
 
 public class Servidor implements Runnable {
 
@@ -57,6 +56,7 @@ class TrataCliente extends Thread {
 
 	private Socket client;
 
+
 	public TrataCliente(Socket s) {
 		client = s;
 	}
@@ -73,49 +73,48 @@ class TrataCliente extends Thread {
 		try {
 			System.out.println("Porta de conexao aberta 1024");
 			System.out.println("Conexao recebida pelo cliente");
-			
-			
-
 
 			ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
-			InfoCliente c = (InfoCliente) ois.readObject();            
-			JOptionPane.showMessageDialog(null, "Recebido: " + c.getHostName());
+			Funcao f = (Funcao) ois.readObject();
+			JOptionPane.showMessageDialog(null, "Recebido: " + f.getInfo().getHostName());
 			ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
-			//oos.writeObject("From Server: " + c.getIp());
 			oos.writeObject("arquivo");//resposta para o cliente
 			ois.close();
 			oos.close();
+			client.close();//atencao
 			client.close();
-			client.close();
-			
-			
 
-			//**************************************
-//			entrada = client.getInputStream();
-//			read = new BufferedReader(new InputStreamReader(entrada));
-//			origem = read.readLine();
-			//**************************************
+			if (f.getIndex() == 3){
 
-		/*	byte[] cbuffer = new byte[1024];
-			int bytesRead;
+				//**************************************
+				entrada = client.getInputStream();
+				read = new BufferedReader(new InputStreamReader(entrada));
+				origem = read.readLine();
+				//**************************************
 
-			File file = new File(origem);
-			fileIn = new FileInputStream(file);
-			System.out.println("Lendo arquivo...");
+				byte[] cbuffer = new byte[1024];
+				int bytesRead;
 
-			socketOut = client.getOutputStream();
+				File file = new File(origem);
+				fileIn = new FileInputStream(file);
+				System.out.println("Lendo arquivo...");
 
-			System.out.println("Enviando Arquivo...");
-			while ((bytesRead = fileIn.read(cbuffer)) != -1) {
-				socketOut.write(cbuffer, 0, bytesRead);
-				socketOut.flush();
+				socketOut = client.getOutputStream();
+
+				System.out.println("Enviando Arquivo...");
+				while ((bytesRead = fileIn.read(cbuffer)) != -1) {
+					socketOut.write(cbuffer, 0, bytesRead);
+					socketOut.flush();
+				}
+
+				System.out.println("Arquivo Enviado!");
+				client.close();
+
 			}
 
-			System.out.println("Arquivo Enviado!");
-			client.close();*/
 		} catch (Exception e) {
 			e.printStackTrace();
-		}/* finally {
+		} finally {
 			if (socketOut != null) {
 				try {
 					socketOut.close();
@@ -139,9 +138,7 @@ class TrataCliente extends Thread {
 					e.printStackTrace();
 				}
 			}
-		}*/
-		
-		
+		}
 
 	}
 }

@@ -11,8 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import previero3.recursos.Funcao;
-import previero3.recursos.PedirArquivo;
+import previero4.objetos.Funcao;
+import previero4.objetos.PedirArquivo;
 import previero4.objetos.InfoCliente;
 
 public class tela {
@@ -123,7 +123,11 @@ public class tela {
 				setDestino(tfDestino.getText());
 
 				//new PedirArquivo(origem, destino).start();
-				new Cliente("SERVER", 1024, "origem", "destino").start();
+				//new Cliente("SERVER", 1024, "origem", "destino").start();
+				
+				Funcao funcao = new Funcao(2,"info", new InfoCliente());
+				new Cliente(funcao).start();
+				
 				
 				/*InfoCliente info = new InfoCliente();
 				new Funcao(2, "Informacoes", info);

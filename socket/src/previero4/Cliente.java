@@ -19,7 +19,7 @@ public class Cliente extends Thread {
 
 	private String server;
 	private int porta;
-	//public static int i ;
+	public static int i ;
 	String origem;
 	String destino;
 	Funcao funcao;
@@ -99,7 +99,7 @@ public class Cliente extends Thread {
 				}
 
 				Thread.sleep(2000);
-				s.close();
+				//s.close();
 				System.out.println("Arquivo recebido!");
 			}
 			
